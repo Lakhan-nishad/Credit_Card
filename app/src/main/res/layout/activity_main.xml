@@ -14,36 +14,32 @@
         android:gravity="center_horizontal"
         >
 
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/editTextCardNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:errorEnabled="true"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="20dp"
-            android:orientation="vertical"
+            app:boxStrokeColor="#AEACAC"
+            app:boxCornerRadiusBottomEnd="5dp"
+            app:boxCornerRadiusBottomStart="5dp"
+            app:boxCornerRadiusTopEnd="5dp"
+            app:boxCornerRadiusTopStart="5dp"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeWidthFocused="2dp"
+            app:hintAnimationEnabled="true"
             >
-            <EditText
-                android:id="@+id/editTextCardNumber"
+            <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="54dp"
-                android:ems="10"
+                android:layout_height="wrap_content"
+                android:hint="Card number"
                 android:inputType="number"
-                android:hint="Card Number"
-                android:paddingHorizontal="10dp"
-                android:background="@drawable/edit_text_bacground"
+                android:ellipsize="end"
 
                 />
-            <TextView
-                android:id="@+id/cardNumberText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Invalid card number"
-                android:textColor="#ff0000"
-                android:visibility="invisible"
-                android:paddingHorizontal="10dp"
-                />
-        </LinearLayout>
-
-
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,118 +47,132 @@
             android:weightSum="1"
             android:layout_marginHorizontal="20dp"
             >
-            <LinearLayout
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:id="@+id/editTextTextExpireDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                app:errorEnabled="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                app:boxStrokeColor="#AEACAC"
+                app:boxCornerRadiusBottomEnd="5dp"
+                app:boxCornerRadiusBottomStart="5dp"
+                app:boxCornerRadiusTopEnd="5dp"
+                app:boxCornerRadiusTopStart="5dp"
+                app:boxStrokeWidth="2dp"
+                app:boxStrokeWidthFocused="2dp"
+                app:hintAnimationEnabled="true"
                 android:layout_weight="0.5"
-
                 >
-                <EditText
-                    android:id="@+id/editTextTextExpireDate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="54dp"
-                    android:ems="10"
-                    android:inputType="date"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:hint="MM/YY"
-                    android:paddingLeft="10dp"
-                    android:layout_marginRight="12dp"
-                    android:background="@drawable/edit_text_bacground"
-                    />
-                <TextView
-                    android:id="@+id/dateText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Invalid Date"
-                    android:textColor="#ff0000"
-                    android:visibility="invisible"
-                    android:paddingHorizontal="10dp"
-                    />
-            </LinearLayout>
+                    android:inputType="number"
+                    android:ellipsize="end"
 
-            <LinearLayout
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:id="@+id/editTextTextCVVNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                app:errorEnabled="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                app:boxStrokeColor="#AEACAC"
+                app:boxCornerRadiusBottomEnd="5dp"
+                app:boxCornerRadiusBottomStart="5dp"
+                app:boxCornerRadiusTopEnd="5dp"
+                app:boxCornerRadiusTopStart="5dp"
+                app:boxStrokeWidth="2dp"
+                app:boxStrokeWidthFocused="2dp"
+                app:hintAnimationEnabled="true"
                 android:layout_weight="0.5"
-
                 >
-                <EditText
-                    android:id="@+id/editTextTextCVVNumber"
-                    android:layout_width="wrap_content"
-                    android:layout_height="54dp"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:hint="CVV"
-
-                    android:paddingHorizontal="10dp"
-                    android:background="@drawable/edit_text_bacground"
-
-                    android:layout_marginEnd="0dp"
-
-                    />
-                <TextView
-                    android:id="@+id/cvvText"
-                    android:layout_width="wrap_content"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Invalid CVV"
-                    android:textColor="#ff0000"
-                    android:visibility="invisible"
-                    android:paddingHorizontal="10dp"
+                    android:hint="CVV"
+                    android:inputType="number"
+                    android:ellipsize="end"
+
                     />
-            </LinearLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
 
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
             android:weightSum="1"
+            android:layout_marginHorizontal="20dp"
             >
-            <LinearLayout
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:id="@+id/editTextTextFirstName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                app:errorEnabled="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                app:boxStrokeColor="#AEACAC"
+                app:boxCornerRadiusBottomEnd="5dp"
+                app:boxCornerRadiusBottomStart="5dp"
+                app:boxCornerRadiusTopEnd="5dp"
+                app:boxCornerRadiusTopStart="5dp"
+                app:boxStrokeWidth="2dp"
+                app:boxStrokeWidthFocused="2dp"
+                app:hintAnimationEnabled="true"
                 android:layout_weight="0.5"
                 >
-                <EditText
-                    android:id="@+id/editTextTextFirstName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="54dp"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:hint="First Name"
-                    android:paddingHorizontal="10dp"
-                    android:background="@drawable/edit_text_bacground"
-                    />
-                <TextView
-                    android:id="@+id/nameText"
-                    android:layout_width="wrap_content"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Invalid name"
-                    android:textColor="#ff0000"
-                    android:visibility="invisible"
+                    android:hint="First Name"
+                    android:inputType="textPersonName"
+                    android:ellipsize="end"
 
-                    android:paddingHorizontal="10dp"
                     />
-            </LinearLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:id="@+id/editTextTextLastName"
                 android:layout_width="wrap_content"
-                android:layout_height="54dp"
-                android:ems="10"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                app:boxStrokeColor="#AEACAC"
+                app:boxCornerRadiusBottomEnd="5dp"
+                app:boxCornerRadiusBottomStart="5dp"
+                app:boxCornerRadiusTopEnd="5dp"
+                app:boxCornerRadiusTopStart="5dp"
+                app:boxStrokeWidth="2dp"
+                app:boxStrokeWidthFocused="2dp"
+                app:hintAnimationEnabled="true"
                 android:layout_weight="0.5"
-                android:inputType="textPersonName"
-                android:hint="Last Name"
-                android:layout_marginLeft="12dp"
-                android:paddingHorizontal="10dp"
-                android:background="@drawable/edit_text_bacground"
-                 />
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Last Name"
+                    android:inputType="textPersonName"
+                    android:ellipsize="end"
+
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
 
         </LinearLayout>
+
 
         <RelativeLayout
             android:layout_width="match_parent"

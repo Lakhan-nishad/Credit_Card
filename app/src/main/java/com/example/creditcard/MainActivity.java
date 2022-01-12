@@ -4,12 +4,14 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -17,13 +19,9 @@ import java.util.regex.Pattern;
 public class MainActivity extends AppCompatActivity {
 
 
-    EditText cardNumberEditText;
-    EditText dateEditText;
-    EditText CVVEditText;
-    EditText firstNameEditText;
-    EditText lastNameEditText;
+    TextInputLayout cardNumberEditText, dateEditText, CVVEditText, firstNameEditText, lastNameEditText;
     Button submitButton;
-    TextView cardNumberText, dateText, cvvText, nameText;
+    TextView  dateText, cvvText, nameText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,71 +33,48 @@ public class MainActivity extends AppCompatActivity {
         firstNameEditText = findViewById(R.id.editTextTextFirstName);
         lastNameEditText = findViewById(R.id.editTextTextLastName);
         submitButton = findViewById(R.id.submitButton);
-        cardNumberText = findViewById(R.id.cardNumberText);
-        dateText = findViewById(R.id.dateText);
-        cvvText = findViewById(R.id.cvvText);
-        nameText = findViewById(R.id.nameText);
 
-        cardNumberEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+        CVVEditText.getEditText().setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
                 if (hasFocus) {
-                    cardNumberEditText.setBackground(getDrawable(R.drawable.success_bg));
-                } else {
-                    cardNumberEditText.setBackground(getDrawable(R.drawable.edit_text_bacground));
+                    CVVEditText.setBoxStrokeColor(Color.parseColor("#52BC52"));
                 }
             }
         });
 
-        CVVEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        cardNumberEditText.getEditText().setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
                 if (hasFocus) {
-                    CVVEditText.setBackground(getDrawable(R.drawable.success_bg));
-                } else {
-                    CVVEditText.setBackground(getDrawable(R.drawable.edit_text_bacground));
+
+                    cardNumberEditText.setBoxStrokeColor(Color.parseColor("#52BC52"));
                 }
             }
         });
 
-        cardNumberEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        dateEditText.getEditText().setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
                 if (hasFocus) {
-                    cardNumberEditText.setBackground(getDrawable(R.drawable.success_bg));
-                } else {
-                    cardNumberEditText.setBackground(getDrawable(R.drawable.edit_text_bacground));
+                    dateEditText.setBoxStrokeColor(Color.parseColor("#52BC52"));
                 }
             }
         });
-
-        dateEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        firstNameEditText.getEditText().setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
                 if (hasFocus) {
-                    dateEditText.setBackground(getDrawable(R.drawable.success_bg));
-                } else {
-                    dateEditText.setBackground(getDrawable(R.drawable.edit_text_bacground));
+                    firstNameEditText.setBoxStrokeColor(Color.parseColor("#52BC52"));
                 }
             }
         });
-        firstNameEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        lastNameEditText.getEditText().setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
                 if (hasFocus) {
-                    firstNameEditText.setBackground(getDrawable(R.drawable.success_bg));
-                } else {
-                    firstNameEditText.setBackground(getDrawable(R.drawable.edit_text_bacground));
-                }
-            }
-        });
-        lastNameEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean hasFocus) {
-                if (hasFocus) {
-                    lastNameEditText.setBackground(getDrawable(R.drawable.success_bg));
-                } else {
-                    lastNameEditText.setBackground(getDrawable(R.drawable.edit_text_bacground));
+                    lastNameEditText.setBoxStrokeColor(Color.parseColor("#52BC52"));
                 }
             }
         });
@@ -129,42 +104,44 @@ public class MainActivity extends AppCompatActivity {
 
             boolean flag = true;
 
-            if (cardNumberEditText.getText().toString().equals("") || !isValid(Long.parseLong(cardNumberEditText.getText().toString()))) {
+            if (cardNumberEditText.getEditText().getText().toString().equals("") || !isValid(Long.parseLong(cardNumberEditText.getEditText().getText().toString()))) {
 
-                cardNumberEditText.setBackground(getDrawable(R.drawable.error_bg));
-                cardNumberText.setVisibility(View.VISIBLE);
-//                alertDialog.setMessage(isValid(Long.parseLong("79927398713")).toString());
-//                alertDialog.show();
+                cardNumberEditText.setBoxStrokeColor(Color.parseColor("#ff0000"));
+                cardNumberEditText.setError("Invalid card number");
                 flag = false;
             } else {
-                cardNumberEditText.setBackground(getDrawable(R.drawable.success_bg));
-                cardNumberText.setVisibility(View.INVISIBLE);
+                cardNumberEditText.setError(null);
+                cardNumberEditText.setBoxStrokeColor(Color.parseColor("#52BC52"));
             }
-            if (!isValidCVVNumber(CVVEditText.getText().toString())) {
-                cvvText.setVisibility(View.VISIBLE);
-                CVVEditText.setBackground(getDrawable(R.drawable.error_bg));
+            if (!isValidCVVNumber(CVVEditText.getEditText().getText().toString())) {
+                CVVEditText.setError("Invalid CVV number");
+                CVVEditText.setBoxStrokeColor(Color.parseColor("#ff0000"));
                 flag = false;
             } else {
-                cvvText.setVisibility(View.INVISIBLE);
-                CVVEditText.setBackground(getDrawable(R.drawable.success_bg));
+                CVVEditText.setError(null);
+                CVVEditText.setBoxStrokeColor(Color.parseColor("#52BC52"));
             }
-            if (firstNameEditText.getText().toString().equals("")) {
-                nameText.setVisibility(View.VISIBLE);
-                firstNameEditText.setBackground(getDrawable(R.drawable.error_bg));
+            if (firstNameEditText.getEditText().getText().toString().equals("")) {
+                firstNameEditText.setError("Invalid name");
+                firstNameEditText.setBoxStrokeColor(Color.parseColor("#ff0000"));
                 flag = false;
             } else {
-                nameText.setVisibility(View.INVISIBLE);
-                firstNameEditText.setBackground(getDrawable(R.drawable.success_bg));
+                firstNameEditText.setError(null);
+                firstNameEditText.setBoxStrokeColor(Color.parseColor("#52BC52"));
             }
-            if (!isValidDate(dateEditText.getText().toString())) {
-                dateText.setVisibility(View.VISIBLE);
-                dateEditText.setBackground(getDrawable(R.drawable.error_bg));
+            if (!isValidDate(dateEditText.getEditText().getText().toString())) {
+                dateEditText.setError("Invalid date");
+                dateEditText.setBoxStrokeColor(Color.parseColor("#ff0000"));
                 flag = false;
             } else {
-                dateText.setVisibility(View.INVISIBLE);
-                dateEditText.setBackground(getDrawable(R.drawable.success_bg));
+                dateEditText.setError(null);
+                dateEditText.setBoxStrokeColor(Color.parseColor("#52BC52"));
             }
             if (flag) {
+                cardNumberEditText.setBoxStrokeColor(Color.parseColor("#52BC52"));
+                dateEditText.setBoxStrokeColor(Color.parseColor("#52BC52"));
+                CVVEditText.setBoxStrokeColor(Color.parseColor("#52BC52"));
+                firstNameEditText.setBoxStrokeColor(Color.parseColor("#52BC52"));
                 alertDialog.show();
             }
 
