@@ -106,12 +106,12 @@ public class MainActivity extends AppCompatActivity {
 
         submitButton.setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-            builder.setMessage("Completed");
+            builder.setMessage("Payment Successful");
             builder.setCancelable(false);
 
             builder
                     .setPositiveButton(
-                            "Yes",
+                            "OK",
                             new DialogInterface
                                     .OnClickListener() {
 
